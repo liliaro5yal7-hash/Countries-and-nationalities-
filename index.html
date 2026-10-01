@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Games: Countries & Nationalities</title>
+    <style>
+        /* --- CSS RESET & VARIABLES --- */
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --text: #333333;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- TRADITIONAL GAMES GRID --- */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--accent);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .flag {
+            font-size: 2.5rem;
+        }
+
+        .card-title h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .card-title span {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-body p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* --- MODERN GAMING TABLE --- */
+        .table-wrapper {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* --- RANDOMIZER GAME --- */
+        .randomizer-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #random-display {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        #random-display .big-emoji {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #c0392b;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>🌍 Global Games & Cultures</h1>
+        <p>Exploring traditional games, modern esports, and the nationalities behind them.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- SECTION 1: TRADITIONAL GAMES -->
+        <section id="traditional">
+            <h2>Traditional Games Around the World</h2>
+            <div class="games-grid">
+                
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="flag">🇨🇳</div>
+                        <div class="card-title">
+                            <h3>Go (Weiqi)</h3>
+                            <span>China • Chinese</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>An ancient strategy board game for two players. Originating in China over 2,500 years ago, it is renowned for its deep strategic complexity despite simple rules.</p>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="flag">🇯🇵</div>
+                        <div class="card-title">
+                            <h3>Shogi</h3>
+                            <span>Japan • Japanese</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Often called Japanese Chess, Shogi is unique because captured pieces can be "dropped" back onto the board as your own, leading to incredibly dynamic and complex gameplay.</p>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="flag">🇫🇷</div>
+                        <div class="card-title">
+                            <h3>Pétanque</h3>
+                            <span>France • French</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>A beloved outdoor boules game where players throw heavy metal balls as close as possible to a small wooden target ball. A staple of French village squares.</p>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="flag">🇪🇹</div>
+                        <div class="card-title">
+                            <h3>Mancala</h3>
+                            <span>Ethiopia / Africa • Ethiopian</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Known as the world's oldest game, Mancala involves sowing and capturing seeds in pits. It has hundreds of regional variations across the African continent.</p>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="flag">🇲🇾</div>
+                        <div class="card-title">
+                            <h3>Sepak Takraw</h3>
+                            <span>Malaysia • Malaysian</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Often described as "kick volleyball", players use their feet, knees, chest, and head to keep a rattan ball in the air over a net. Highly athletic and acrobatic.</p>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="flag">🇮🇪</div>
+                        <div class="card-title">
+                            <h3>Hurling</h3>
+                            <span>Ireland • Irish</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>One of the world's fastest field games, dating back over 3,000 years. Players use a wooden stick (hurley) to hit a small ball (sliotar) between goalposts.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: MODERN GAMING HUBS -->
+        <section id="modern">
+            <h2>Modern Gaming & Esports Hubs</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Flag</th>
+                            <th>Country</th>
+                            <th>Nationality</th>
+                            <th>Gaming Contribution / Culture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🇰🇷</td>
+                            <td>South Korea</td>
+                            <td>South Korean</td>
+                            <td>The global birthplace of modern Esports. Home to massive PC Bang (gaming cafe) culture and legendary pro-gamers in <em>StarCraft</em> and <em>League of Legends</em>.</td>
+                        </tr>
+                        <tr>
+                            <td>🇵🇱</td>
+                            <td>Poland</td>
+                            <td>Polish</td>
+                            <td>A powerhouse in RPG development. Home to CD Projekt Red (<em>The Witcher</em>, <em>Cyberpunk 2077</em>) and a massive national pride in local gaming culture.</td>
+                        </tr>
+                        <tr>
+                            <td>🇸🇪</td>
+                            <td>Sweden</td>
+                            <td>Swedish</td>
+                            <td>A hub for indie and sandbox giants. Birthplace of <em>Minecraft</em> (Mojang) and major studios like DICE (<em>Battlefield</em>).</td>
+                        </tr>
+                        <tr>
+                            <td>🇺🇸</td>
+                            <td>United States</td>
+                            <td>American</td>
+                            <td>The center of the AAA gaming industry, FPS genres, and massive publishing houses. Home to giants like Blizzard, EA, and Riot Games.</td>
+                        </tr>
+                        <tr>
+                            <td>🇧🇷</td>
+                            <td>Brazil</td>
+                            <td>Brazilian</td>
+                            <td>The largest gaming market in Latin America. Known for a massive, passionate mobile and competitive FPS community, and incredible fighting game players.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 3: INTERACTIVE RANDOMIZER -->
+        <section id="randomizer">
+            <h2>🎲 Global Game Randomizer</h2>
+            <div class="randomizer-box">
+                <p>Click the button to discover a random game, its country of origin, and nationality!</p>
+                <div id="random-display">
+                    <span>Press the button to start!</span>
+                </div>
+                <button onclick="generateRandomGame()">Draw a Game!</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>🌍 Global Games & Cultures | An exploration of how nationalities shape the way we play.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR RANDOMIZER -->
+    <script>
+        const gamesData = [
+            { game: "Chess (Chaturanga)", country: "India", nationality: "Indian", emoji: "🇮🇳" },
+            { game: "Mahjong", country: "China", nationality: "Chinese", emoji: "🇨🇳" },
+            { game: "Lotería", country: "Mexico", nationality: "Mexican", emoji: "🇲🇽" },
+            { game: "Backgammon (Nard)", country: "Iran / Persia", nationality: "Persian", emoji: "🇮🇷" },
+            { game: "Darts", country: "England", nationality: "English", emoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
+            { game: "Boomerang Throwing", country: "Australia", nationality: "Aboriginal Australian", emoji: "🇦🇺" },
+            { game: "Ice Hockey", country: "Canada", nationality: "Canadian", emoji: "🇨🇦" },
+            { game: "Capoeira (Game/Roda)", country: "Brazil", nationality: "Brazilian", emoji: "🇧🇷" },
+            { game: "Dominoes", country: "Italy / China", nationality: "Italian / Chinese", emoji: "🇮🇹" },
+            { game: "Tafl (Viking Chess)", country: "Scandinavia", nationality: "Norse", emoji: "🇳🇴" }
+        ];
+
+        function generateRandomGame() {
+            const randomIndex = Math.floor(Math.random() * gamesData.length);
+            const selected = gamesData[randomIndex];
+            
+            const display = document.getElementById('random-display');
+            display.innerHTML = `
+                <span class="big-emoji">${selected.emoji}</span>
+                <strong>${selected.game}</strong>
+                <span style="font-size: 1rem; color: #7f8c8d; margin-top: 5px;">
+                    Origin: ${selected.country} | Nationality: ${selected.nationality}
+                </span>
+            `;
+        }
+    </script>
+
+</body>
+</html>
